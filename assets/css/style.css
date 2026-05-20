@@ -1,0 +1,31 @@
+body {
+    background-color: #f8f9fa;
+}
+
+.hero {
+    background: linear-gradient(135deg, #6f42c1, #8e44ad);
+    color: white;
+    padding: 80px 0;
+    border-radius: 0 0 20px 20px;
+}
+
+.section-title {
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+.menu-card img {
+    height: 220px;
+    object-fit: cover;
+}
+
+.condition-box {
+    background-color: #fff3cd;
+    border-left: 5px solid #ffc107;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.review-card {
+    min-height: 100%;
+}
