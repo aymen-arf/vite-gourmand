@@ -1,23 +1,37 @@
 </main>
 
-<footer class="bg-dark text-white py-4 mt-5">
+<footer class="site-footer">
     <div class="container">
-        <div class="row">
-            <div class="col-md-4 mb-3">
+        <div class="row gy-4">
+            <div class="col-md-4">
                 <h5>Vite & Gourmand</h5>
-                <p class="mb-0">Traiteur pour vos événements à Bordeaux.</p>
+                <p class="mb-0">
+                    Traiteur pour vos événements à Bordeaux.<br>
+                    Menus sur mesure, livraison et service de qualité.
+                </p>
             </div>
-            <div class="col-md-4 mb-3">
+
+            <div class="col-md-4">
                 <h5>Horaires</h5>
-                <p class="mb-0">Lundi au vendredi : 09h00 - 18h00</p>
-                <p class="mb-0">Samedi : 10h00 - 17h00</p>
+                <p class="mb-1">Lundi au vendredi : 09h00 - 18h00</p>
+                <p class="mb-1">Samedi : 10h00 - 17h00</p>
                 <p class="mb-0">Dimanche : 10h00 - 15h00</p>
             </div>
-            <div class="col-md-4 mb-3">
+
+            <div class="col-md-4">
                 <h5>Liens utiles</h5>
-                <a href="#" class="text-white d-block">Mentions légales</a>
-                <a href="#" class="text-white d-block">Conditions générales de vente</a>
+                <a href="/vite-gourmand/index.php">Accueil</a>
+                <a href="/vite-gourmand/pages/menus.php">Menus</a>
+                <a href="/vite-gourmand/pages/contact.php">Contact</a>
+                <a href="/vite-gourmand/pages/mentions-legales.php">Mentions légales</a>
+                <a href="/vite-gourmand/pages/cgv.php">CGV</a>
             </div>
+        </div>
+
+        <hr class="footer-divider">
+
+        <div class="footer-bottom">
+            <p class="mb-0">© <?= date('Y') ?> Vite & Gourmand. Tous droits réservés.</p>
         </div>
     </div>
 </footer>

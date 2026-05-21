@@ -1,4 +1,8 @@
 <?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
 if (!isset($pageTitle)) {
     $pageTitle = "Vite & Gourmand";
 }
@@ -13,12 +17,18 @@ if (!isset($pageTitle)) {
     <link href="/vite-gourmand/assets/css/style.css" rel="stylesheet">
 </head>
 <body>
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand fw-bold" href="/vite-gourmand/index.php">Vite & Gourmand</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="/vite-gourmand/index.php">
+            <img src="https://viteetgourmand.com/assets/img/Logo_VG.png" alt="Logo" class="logo-navbar">
+            <span>Vite & Gourmand</span>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Ouvrir le menu">
             <span class="navbar-toggler-icon"></span>
         </button>
+
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
@@ -30,12 +40,36 @@ if (!isset($pageTitle)) {
                 <li class="nav-item">
                     <a class="nav-link" href="/vite-gourmand/pages/contact.php">Contact</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Connexion</a>
-                </li>
+
+                <?php if (isset($_SESSION['utilisateur'])): ?>
+                    <?php if ($_SESSION['utilisateur']['role'] === 'administrateur'): ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/vite-gourmand/admin/dashboard.php">Dashboard</a>
+                        </li>
+                    <?php elseif ($_SESSION['utilisateur']['role'] === 'employe'): ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/vite-gourmand/employee/dashboard.php">Dashboard</a>
+                        </li>
+                    <?php else: ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/vite-gourmand/user/dashboard.php">Dashboard</a>
+                        </li>
+                    <?php endif; ?>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/vite-gourmand/actions/logout.php">Déconnexion</a>
+                    </li>
+                <?php else: ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/vite-gourmand/pages/register.php">Inscription</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/vite-gourmand/pages/login.php">Connexion</a>
+                    </li>
+                <?php endif; ?>
             </ul>
         </div>
     </div>
 </nav>
 
-<main class="py-5"></main>
+<main>
