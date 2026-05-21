@@ -20,11 +20,11 @@
 
             <div class="col-md-4">
                 <h5>Liens utiles</h5>
-                <a href="/vite-gourmand/index.php">Accueil</a>
-                <a href="/vite-gourmand/pages/menus.php">Menus</a>
-                <a href="/vite-gourmand/pages/contact.php">Contact</a>
-                <a href="/vite-gourmand/pages/mentions-legales.php">Mentions légales</a>
-                <a href="/vite-gourmand/pages/cgv.php">CGV</a>
+                <a href="/index.php">Accueil</a>
+                <a href="/pages/menus.php">Menus</a>
+                <a href="/pages/contact.php">Contact</a>
+                <a href="/pages/mentions-legales.php">Mentions légales</a>
+                <a href="/pages/cgv.php">CGV</a>
             </div>
         </div>
 

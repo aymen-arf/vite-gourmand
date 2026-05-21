@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['utilisateur'])) {
-    header('Location: /vite-gourmand/pages/login.php');
+    header('Location: /pages/login.php');
     exit;
 }
 
@@ -31,7 +31,7 @@ include '../includes/header.php';
     <?php endif; ?>
 
     <div class="mb-4">
-        <a href="/vite-gourmand/user/profile.php" class="btn btn-outline-primary">Modifier mon profil</a>
+        <a href="/user/profile.php" class="btn btn-outline-primary">Modifier mon profil</a>
     </div>
 
     <div class="table-responsive">
@@ -58,15 +58,15 @@ include '../includes/header.php';
                             <td><?= number_format($commande['prix_total'], 2, ',', ' ') ?> €</td>
                             <td><?= htmlspecialchars($commande['statut']) ?></td>
                             <td>
-                                <a href="/vite-gourmand/user/commande-detail.php?id=<?= $commande['commande_id'] ?>" class="btn btn-sm btn-primary mb-1">Détail</a>
+                                <a href="/user/commande-detail.php?id=<?= $commande['commande_id'] ?>" class="btn btn-sm btn-primary mb-1">Détail</a>
 
                                 <?php if ($commande['statut'] !== 'accepté'): ?>
-                                    <a href="/vite-gourmand/user/commande-detail.php?id=<?= $commande['commande_id'] ?>&edit=1" class="btn btn-sm btn-warning mb-1">Modifier</a>
-                                    <a href="/vite-gourmand/actions/cancel_commande_action.php?id=<?= $commande['commande_id'] ?>" class="btn btn-sm btn-danger mb-1" onclick="return confirm('Confirmer l’annulation ?')">Annuler</a>
+                                    <a href="/user/commande-detail.php?id=<?= $commande['commande_id'] ?>&edit=1" class="btn btn-sm btn-warning mb-1">Modifier</a>
+                                    <a href="/actions/cancel_commande_action.php?id=<?= $commande['commande_id'] ?>" class="btn btn-sm btn-danger mb-1" onclick="return confirm('Confirmer l’annulation ?')">Annuler</a>
                                 <?php endif; ?>
 
                                 <?php if ($commande['statut'] === 'terminée'): ?>
-                                    <a href="/vite-gourmand/user/commande-detail.php?id=<?= $commande['commande_id'] ?>#avis" class="btn btn-sm btn-success">Donner un avis</a>
+                                    <a href="/user/commande-detail.php?id=<?= $commande['commande_id'] ?>#avis" class="btn btn-sm btn-success">Donner un avis</a>
                                 <?php endif; ?>
                             </td>
                         </tr>

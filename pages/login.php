@@ -12,7 +12,7 @@ include '../includes/header.php';
                 <div class="alert alert-danger"><?= htmlspecialchars($_GET['error']) ?></div>
             <?php endif; ?>
 
-            <form action="/vite-gourmand/actions/login_action.php" method="post" class="card shadow-sm p-4">
+            <form action="/actions/login_action.php" method="post" class="card shadow-sm p-4">
                 <div class="mb-3">
                     <label class="form-label">Adresse e-mail</label>
                     <input type="email" name="email" class="form-control" required>
@@ -24,7 +24,7 @@ include '../includes/header.php';
                 </div>
 
                 <button type="submit" class="btn btn-primary mb-3">Se connecter</button>
-                <a href="/vite-gourmand/pages/forgot_password.php">Mot de passe oublié ?</a>
+                <a href="/pages/forgot_password.php">Mot de passe oublié ?</a>
             </form>
         </div>
     </div>

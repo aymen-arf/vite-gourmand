@@ -3,7 +3,7 @@ session_start();
 require_once '../config/database.php';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header('Location: /vite-gourmand/pages/forgot_password.php');
+    header('Location: /pages/forgot_password.php');
     exit;
 }
 
@@ -12,12 +12,12 @@ $password = $_POST['password'] ?? '';
 $passwordConfirm = $_POST['password_confirm'] ?? '';
 
 if (empty($token) || empty($password) || empty($passwordConfirm)) {
-    header('Location: /vite-gourmand/pages/forgot_password.php?error=' . urlencode('Requête invalide'));
+    header('Location: /pages/forgot_password.php?error=' . urlencode('Requête invalide'));
     exit;
 }
 
 if ($password !== $passwordConfirm) {
-    header('Location: /vite-gourmand/pages/reset_password.php?token=' . urlencode($token) . '&error=' . urlencode('Les mots de passe ne correspondent pas'));
+    header('Location: /pages/reset_password.php?token=' . urlencode($token) . '&error=' . urlencode('Les mots de passe ne correspondent pas'));
     exit;
 }
 
@@ -28,7 +28,7 @@ if (
     !preg_match('/[0-9]/', $password) ||
     !preg_match('/[\W_]/', $password)
 ) {
-    header('Location: /vite-gourmand/pages/reset_password.php?token=' . urlencode($token) . '&error=' . urlencode('Mot de passe non conforme'));
+    header('Location: /pages/reset_password.php?token=' . urlencode($token) . '&error=' . urlencode('Mot de passe non conforme'));
     exit;
 }
 
@@ -42,12 +42,12 @@ $stmt->execute([$token]);
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if (!$user) {
-    header('Location: /vite-gourmand/pages/forgot_password.php?error=' . urlencode('Lien invalide ou expiré'));
+    header('Location: /pages/forgot_password.php?error=' . urlencode('Lien invalide ou expiré'));
     exit;
 }
 
 if (strtotime($user['reset_token_expires_at']) < time()) {
-    header('Location: /vite-gourmand/pages/forgot_password.php?error=' . urlencode('Lien invalide ou expiré'));
+    header('Location: /pages/forgot_password.php?error=' . urlencode('Lien invalide ou expiré'));
     exit;
 }
 
@@ -60,5 +60,5 @@ $update = $pdo->prepare("
 ");
 $update->execute([$newHashedPassword, $user['utilisateur_id']]);
 
-header('Location: /vite-gourmand/pages/login.php?success=' . urlencode('Mot de passe réinitialisé avec succès'));
+header('Location: /pages/login.php?success=' . urlencode('Mot de passe réinitialisé avec succès'));
 exit;

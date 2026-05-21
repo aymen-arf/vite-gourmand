@@ -17,7 +17,7 @@ if (!$menu) {
         <div class="alert alert-danger">
             Menu introuvable.
         </div>
-        <a href="/vite-gourmand/pages/menus.php" class="btn btn-primary">Retour aux menus</a>
+        <a href="/pages/menus.php" class="btn btn-primary">Retour aux menus</a>
     </section>
 <?php
     include '../includes/footer.php';
@@ -67,11 +67,11 @@ if (!$menu) {
             </div>
 
             <?php if (isset($_SESSION['utilisateur'])): ?>
-                <a href="/vite-gourmand/pages/commande.php?menu_id=<?= urlencode($menu['menu_id']) ?>" class="btn btn-success btn-lg">
+                <a href="/pages/commande.php?menu_id=<?= urlencode($menu['menu_id']) ?>" class="btn btn-success btn-lg">
                     Commander ce menu
                 </a>
             <?php else: ?>
-                <a href="/vite-gourmand/pages/login.php" class="btn btn-primary btn-lg">
+                <a href="/pages/login.php" class="btn btn-primary btn-lg">
                     Se connecter pour commander
                 </a>
             <?php endif; ?>

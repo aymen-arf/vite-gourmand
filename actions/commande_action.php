@@ -5,12 +5,12 @@ require_once '../config/mongodb.php';
 require_once '../config/mailer.php';
 
 if (!isset($_SESSION['utilisateur'])) {
-    header('Location: /vite-gourmand/pages/login.php');
+    header('Location: /pages/login.php');
     exit;
 }
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header('Location: /vite-gourmand/pages/menus.php');
+    header('Location: /pages/menus.php');
     exit;
 }
 
@@ -27,7 +27,7 @@ $stmt->execute([$menuId]);
 $menu = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if (!$menu) {
-    header('Location: /vite-gourmand/pages/menus.php');
+    header('Location: /pages/menus.php');
     exit;
 }
 
@@ -41,7 +41,7 @@ if (
     empty($heureLivraison) ||
     $nombrePersonne < $minimum
 ) {
-    header('Location: /vite-gourmand/pages/commande.php?menu_id=' . $menuId . '&error=' . urlencode('Veuillez respecter le minimum de personnes et remplir tous les champs'));
+    header('Location: /pages/commande.php?menu_id=' . $menuId . '&error=' . urlencode('Veuillez respecter le minimum de personnes et remplir tous les champs'));
     exit;
 }
 
@@ -156,5 +156,5 @@ if (!empty($destinataire)) {
     envoyerMail($destinataire, $nomClient, $sujet, $html, $texte);
 }
 
-header('Location: /vite-gourmand/user/dashboard.php?success=commande');
+header('Location: /user/dashboard.php?success=commande');
 exit;

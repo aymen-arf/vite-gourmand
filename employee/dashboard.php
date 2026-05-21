@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['utilisateur']) || !in_array($_SESSION['utilisateur']['role'], ['employe', 'administrateur'])) {
-    header('Location: /vite-gourmand/pages/login.php');
+    header('Location: /pages/login.php');
     exit;
 }
 
@@ -129,7 +129,7 @@ include '../includes/header.php';
                                 <td><?= number_format($commande['prix_total'], 2, ',', ' ') ?> €</td>
                                 <td><?= htmlspecialchars($commande['statut']) ?></td>
                                 <td>
-                                    <form action="/vite-gourmand/actions/update_commande_statut_action.php" method="post">
+                                    <form action="/actions/update_commande_statut_action.php" method="post">
                                         <input type="hidden" name="commande_id" value="<?= $commande['commande_id'] ?>">
                                         <select name="statut" class="form-select form-select-sm mb-2">
                                             <option value="en attente" <?= $commande['statut'] === 'en attente' ? 'selected' : '' ?>>en attente</option>
@@ -184,7 +184,7 @@ include '../includes/header.php';
 
     <div class="card shadow-sm p-4 mb-4">
         <h2 class="h4 mb-3">Ajouter un menu</h2>
-        <form action="/vite-gourmand/actions/add_menu_action.php" method="post" class="row g-3">
+        <form action="/actions/add_menu_action.php" method="post" class="row g-3">
             <div class="col-md-6">
                 <input type="text" name="titre" class="form-control" placeholder="Titre du menu" required>
             </div>
@@ -238,7 +238,7 @@ include '../includes/header.php';
                             <td><?= htmlspecialchars($menu['prix_par_personne']) ?> €</td>
                             <td><?= htmlspecialchars($menu['stock_disponible']) ?></td>
                             <td>
-                                <a href="/vite-gourmand/actions/delete_menu_action.php?id=<?= $menu['menu_id'] ?>" class="btn btn-sm btn-danger" onclick="return confirm('Supprimer ce menu ?')">Supprimer</a>
+                                <a href="/actions/delete_menu_action.php?id=<?= $menu['menu_id'] ?>" class="btn btn-sm btn-danger" onclick="return confirm('Supprimer ce menu ?')">Supprimer</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -249,7 +249,7 @@ include '../includes/header.php';
 
     <div class="card shadow-sm p-4 mb-4">
         <h2 class="h4 mb-3">Ajouter un plat</h2>
-        <form action="/vite-gourmand/actions/add_plat_action.php" method="post" class="row g-3">
+        <form action="/actions/add_plat_action.php" method="post" class="row g-3">
             <div class="col-md-4">
                 <input type="text" name="titre_plat" class="form-control" placeholder="Titre du plat" required>
             </div>
@@ -289,7 +289,7 @@ include '../includes/header.php';
                         <td><?= htmlspecialchars($plat['type_plat']) ?></td>
                         <td><?= htmlspecialchars($plat['prix']) ?> €</td>
                         <td>
-                            <a href="/vite-gourmand/actions/delete_plat_action.php?id=<?= $plat['plat_id'] ?>" class="btn btn-sm btn-danger" onclick="return confirm('Supprimer ce plat ?')">Supprimer</a>
+                            <a href="/ctions/delete_plat_action.php?id=<?= $plat['plat_id'] ?>" class="btn btn-sm btn-danger" onclick="return confirm('Supprimer ce plat ?')">Supprimer</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
@@ -299,7 +299,7 @@ include '../includes/header.php';
 
     <div class="card shadow-sm p-4 mb-4">
         <h2 class="h4 mb-3">Ajouter un horaire</h2>
-        <form action="/vite-gourmand/actions/add_horaire_action.php" method="post" class="row g-3">
+        <form action="/actions/add_horaire_action.php" method="post" class="row g-3">
             <div class="col-md-4">
                 <input type="text" name="jour" class="form-control" placeholder="Jour" required>
             </div>
@@ -333,7 +333,7 @@ include '../includes/header.php';
                         <td><?= htmlspecialchars($horaire['heure_ouverture']) ?></td>
                         <td><?= htmlspecialchars($horaire['heure_fermeture']) ?></td>
                         <td>
-                            <a href="/vite-gourmand/actions/delete_horaire_action.php?id=<?= $horaire['horaire_id'] ?>" class="btn btn-sm btn-danger" onclick="return confirm('Supprimer cet horaire ?')">Supprimer</a>
+                            <a href="/actions/delete_horaire_action.php?id=<?= $horaire['horaire_id'] ?>" class="btn btn-sm btn-danger" onclick="return confirm('Supprimer cet horaire ?')">Supprimer</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
@@ -363,8 +363,8 @@ include '../includes/header.php';
                         <td><?= htmlspecialchars($item['description']) ?></td>
                         <td><?= htmlspecialchars($item['statut']) ?></td>
                         <td>
-                            <a href="/vite-gourmand/actions/update_avis_statut_action.php?id=<?= $item['avis_id'] ?>&statut=valide" class="btn btn-sm btn-success mb-1">Valider</a>
-                            <a href="/vite-gourmand/actions/update_avis_statut_action.php?id=<?= $item['avis_id'] ?>&statut=refuse" class="btn btn-sm btn-danger">Refuser</a>
+                            <a href="/actions/update_avis_statut_action.php?id=<?= $item['avis_id'] ?>&statut=valide" class="btn btn-sm btn-success mb-1">Valider</a>
+                            <a href="/actions/update_avis_statut_action.php?id=<?= $item['avis_id'] ?>&statut=refuse" class="btn btn-sm btn-danger">Refuser</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>

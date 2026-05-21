@@ -24,7 +24,7 @@ include '../includes/header.php';
                 </div>
             <?php endif; ?>
 
-            <form action="/vite-gourmand/actions/forgot_password_action.php" method="post" class="card shadow-sm p-4">
+            <form action="/actions/forgot_password_action.php" method="post" class="card shadow-sm p-4">
                 <div class="mb-3">
                     <label class="form-label">Adresse e-mail</label>
                     <input type="email" name="email" class="form-control" required>

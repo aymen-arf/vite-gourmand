@@ -3,7 +3,7 @@ session_start();
 require_once '../config/database.php';
 
 if (!isset($_SESSION['utilisateur']) || !in_array($_SESSION['utilisateur']['role'], ['employe', 'administrateur'])) {
-    header('Location: /vite-gourmand/pages/login.php');
+    header('Location: /pages/login.php');
     exit;
 }
 
@@ -15,5 +15,5 @@ if ($avisId > 0 && in_array($statut, ['valide', 'refuse'], true)) {
     $stmt->execute([$statut, $avisId]);
 }
 
-header('Location: /vite-gourmand/employee/dashboard.php?success=1');
+header('Location: /employee/dashboard.php?success=1');
 exit;

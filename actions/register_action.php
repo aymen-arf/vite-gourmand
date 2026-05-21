@@ -3,7 +3,7 @@ session_start();
 require_once '../config/database.php';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header('Location: /vite-gourmand/pages/register.php');
+    header('Location: /pages/register.php');
     exit;
 }
 
@@ -22,22 +22,22 @@ if (
     empty($code_postal) || empty($pays) || empty($adresse_postale) ||
     empty($email) || empty($password)
 ) {
-    header('Location: /vite-gourmand/pages/register.php?error=' . urlencode('Tous les champs sont obligatoires'));
+    header('Location: /pages/register.php?error=' . urlencode('Tous les champs sont obligatoires'));
     exit;
 }
 
 if (!preg_match('/^[0-9]{10}$/', $telephone)) {
-    header('Location: /vite-gourmand/pages/register.php?error=' . urlencode('Le numéro de téléphone doit contenir exactement 10 chiffres'));
+    header('Location: /pages/register.php?error=' . urlencode('Le numéro de téléphone doit contenir exactement 10 chiffres'));
     exit;
 }
 
 if (!preg_match('/^[0-9]{5}$/', $code_postal)) {
-    header('Location: /vite-gourmand/pages/register.php?error=' . urlencode('Le code postal doit contenir exactement 5 chiffres'));
+    header('Location: /pages/register.php?error=' . urlencode('Le code postal doit contenir exactement 5 chiffres'));
     exit;
 }
 
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    header('Location: /vite-gourmand/pages/register.php?error=' . urlencode('Adresse e-mail invalide'));
+    header('Location: /pages/register.php?error=' . urlencode('Adresse e-mail invalide'));
     exit;
 }
 
@@ -48,7 +48,7 @@ if (
     !preg_match('/[0-9]/', $password) ||
     !preg_match('/[\W_]/', $password)
 ) {
-    header('Location: /vite-gourmand/pages/register.php?error=' . urlencode('Mot de passe non conforme'));
+    header('Location: /pages/register.php?error=' . urlencode('Mot de passe non conforme'));
     exit;
 }
 
@@ -56,7 +56,7 @@ $stmt = $pdo->prepare("SELECT utilisateur_id FROM utilisateur WHERE email = ?");
 $stmt->execute([$email]);
 
 if ($stmt->fetch()) {
-    header('Location: /vite-gourmand/pages/register.php?error=' . urlencode('Cette adresse e-mail existe déjà'));
+    header('Location: /pages/register.php?error=' . urlencode('Cette adresse e-mail existe déjà'));
     exit;
 }
 
@@ -67,7 +67,7 @@ $roleStmt->execute();
 $role = $roleStmt->fetch(PDO::FETCH_ASSOC);
 
 if (!$role) {
-    header('Location: /vite-gourmand/pages/register.php?error=' . urlencode('Rôle utilisateur introuvable'));
+    header('Location: /pages/register.php?error=' . urlencode('Rôle utilisateur introuvable'));
     exit;
 }
 
@@ -100,9 +100,9 @@ try {
 
     @mail($email, $sujet, $message, $headers);
 
-    header('Location: /vite-gourmand/pages/register.php?success=1');
+    header('Location: /pages/register.php?success=1');
     exit;
 } catch (PDOException $e) {
-    header('Location: /vite-gourmand/pages/register.php?error=' . urlencode('Erreur lors de la création du compte'));
+    header('Location: /pages/register.php?error=' . urlencode('Erreur lors de la création du compte'));
     exit;
 }

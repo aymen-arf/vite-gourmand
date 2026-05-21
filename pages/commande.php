@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['utilisateur'])) {
-    header('Location: /vite-gourmand/pages/login.php');
+    header('Location: /pages/login.php');
     exit;
 }
 
@@ -36,7 +36,7 @@ $prixParPersonne = (float)$menu['prix_par_personne'];
 
     <div class="row g-4">
         <div class="col-lg-8">
-            <form action="/vite-gourmand/actions/commande_action.php" method="post" class="card shadow-sm p-4" id="commandeForm">
+            <form action="/actions/commande_action.php" method="post" class="card shadow-sm p-4" id="commandeForm">
                 <input type="hidden" name="menu_id" value="<?= htmlspecialchars($menu['menu_id']) ?>">
 
                 <div class="mb-3">

@@ -45,7 +45,7 @@ include '../includes/header.php';
                     <p class="card-text">Un menu complet pour célébrer les fêtes avec des produits raffinés.</p>
                     <p><strong>Minimum :</strong> 10 personnes</p>
                     <p><strong>Prix :</strong> 25 € / personne</p>
-                    <a href="/vite-gourmand/pages/menu-detail.php?id=1" class="btn btn-primary">Voir le détail</a>
+                    <a href="/pages/menu-detail.php?id=1" class="btn btn-primary">Voir le détail</a>
                 </div>
             </div>
         </div>
@@ -58,7 +58,7 @@ include '../includes/header.php';
                     <p class="card-text">Une formule adaptée aux repas familiaux et événements traditionnels.</p>
                     <p><strong>Minimum :</strong> 8 personnes</p>
                     <p><strong>Prix :</strong> 20 € / personne</p>
-                    <a href="/vite-gourmand/pages/menu-detail.php?id=2" class="btn btn-primary">Voir le détail</a>
+                    <a href="/pages/menu-detail.php?id=2" class="btn btn-primary">Voir le détail</a>
                 </div>
             </div>
         </div>
@@ -71,7 +71,7 @@ include '../includes/header.php';
                     <p class="card-text">Une proposition végétale adaptée aux événements modernes et responsables.</p>
                     <p><strong>Minimum :</strong> 12 personnes</p>
                     <p><strong>Prix :</strong> 27 € / personne</p>
-                    <a href="/vite-gourmand/pages/menu-detail.php?id=3" class="btn btn-primary">Voir le détail</a>
+                    <a href="/pages/menu-detail.php?id=3" class="btn btn-primary">Voir le détail</a>
                 </div>
             </div>
         </div>

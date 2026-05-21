@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['utilisateur'])) {
-    header('Location: /vite-gourmand/pages/login.php');
+    header('Location: /pages/login.php');
     exit;
 }
 
@@ -27,7 +27,7 @@ include '../includes/header.php';
         <div class="alert alert-danger"><?= htmlspecialchars($_GET['error']) ?></div>
     <?php endif; ?>
 
-    <form action="/vite-gourmand/actions/update_profile_action.php" method="post" class="card shadow-sm p-4">
+    <form action="/actions/update_profile_action.php" method="post" class="card shadow-sm p-4">
         <div class="row">
             <div class="col-md-6 mb-3">
                 <label class="form-label">Nom</label>

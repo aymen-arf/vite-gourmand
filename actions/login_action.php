@@ -3,7 +3,7 @@ session_start();
 require_once '../config/database.php';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header('Location: /vite-gourmand/pages/login.php');
+    header('Location: /pages/login.php');
     exit;
 }
 
@@ -11,7 +11,7 @@ $email = trim($_POST['email'] ?? '');
 $password = $_POST['password'] ?? '';
 
 if (empty($email) || empty($password)) {
-    header('Location: /vite-gourmand/pages/login.php?error=Veuillez remplir tous les champs');
+    header('Location: /pages/login.php?error=Veuillez remplir tous les champs');
     exit;
 }
 
@@ -26,7 +26,7 @@ $stmt->execute([$email]);
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if (!$user || !password_verify($password, $user['password'])) {
-    header('Location: /vite-gourmand/pages/login.php?error=Identifiants invalides');
+    header('Location: /pages/login.php?error=Identifiants invalides');
     exit;
 }
 
@@ -39,18 +39,18 @@ $_SESSION['utilisateur'] = [
 ];
 
 if ($user['role_libelle'] === 'administrateur') {
-    header('Location: /vite-gourmand/admin/dashboard.php');
+    header('Location: /admin/dashboard.php');
     exit;
 }
 
 if ($user['role_libelle'] === 'employe') {
-    header('Location: /vite-gourmand/employee/dashboard.php');
+    header('Location: /employee/dashboard.php');
     exit;
 }
 
-header('Location: /vite-gourmand/user/dashboard.php');
+header('Location: /user/dashboard.php');
 exit;
 if (!$utilisateur['actif']) {
-    header('Location: /vite-gourmand/pages/login.php?error=Compte désactivé');
+    header('Location: /pages/login.php?error=Compte désactivé');
     exit;
 }

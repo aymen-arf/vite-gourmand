@@ -3,7 +3,7 @@ session_start();
 require_once '../config/database.php';
 
 if (!isset($_SESSION['utilisateur']) || !in_array($_SESSION['utilisateur']['role'], ['employe', 'administrateur'])) {
-    header('Location: /vite-gourmand/pages/login.php');
+    header('Location: /pages/login.php');
     exit;
 }
 
@@ -23,5 +23,5 @@ $stmt->execute([
     $_POST['stock_disponible']
 ]);
 
-header('Location: /vite-gourmand/employee/dashboard.php?success=1');
+header('Location: /employee/dashboard.php?success=1');
 exit;

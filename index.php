@@ -7,7 +7,7 @@ include 'includes/header.php';
     <div class="container text-center">
         <h1 class="display-5 fw-bold">Vite & Gourmand</h1>
         <p class="lead">Votre traiteur pour tous vos événements à Bordeaux.</p>
-        <a href="/vite-gourmand/pages/menus.php" class="btn btn-light btn-lg mt-3">Voir les menus</a>
+        <a href="/pages/menus.php" class="btn btn-light btn-lg mt-3">Voir les menus</a>
     </div>
 </section>
 

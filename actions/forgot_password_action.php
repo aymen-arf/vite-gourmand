@@ -3,14 +3,14 @@ session_start();
 require_once '../config/database.php';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header('Location: /vite-gourmand/pages/forgot_password.php');
+    header('Location: /pages/forgot_password.php');
     exit;
 }
 
 $email = trim($_POST['email'] ?? '');
 
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    header('Location: /vite-gourmand/pages/forgot_password.php?error=' . urlencode('Adresse e-mail invalide'));
+    header('Location: /pages/forgot_password.php?error=' . urlencode('Adresse e-mail invalide'));
     exit;
 }
 
@@ -29,7 +29,7 @@ if ($user) {
     ");
     $update->execute([$token, $expiresAt, $user['utilisateur_id']]);
 
-    $resetLink = "http://localhost/vite-gourmand/pages/reset_password.php?token=" . urlencode($token);
+    $resetLink = "http://localhost/pages/reset_password.php?token=" . urlencode($token);
 
     $sujet = "Réinitialisation de votre mot de passe";
     $message = "Bonjour " . $user['prenom'] . ",\n\n"
@@ -44,5 +44,5 @@ if ($user) {
     @mail($user['email'], $sujet, $message, $headers);
 }
 
-header('Location: /vite-gourmand/pages/forgot_password.php?success=1');
+header('Location: /pages/forgot_password.php?success=1');
 exit;

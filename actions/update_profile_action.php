@@ -3,7 +3,7 @@ session_start();
 require_once '../config/database.php';
 
 if (!isset($_SESSION['utilisateur'])) {
-    header('Location: /vite-gourmand/pages/login.php');
+    header('Location: /pages/login.php');
     exit;
 }
 
@@ -18,7 +18,7 @@ if (
     empty($nom) || empty($prenom) || empty($telephone) ||
     empty($ville) || empty($pays) || empty($adresse_postale)
 ) {
-    header('Location: /vite-gourmand/user/profile.php?error=Tous les champs sont obligatoires');
+    header('Location: /user/profile.php?error=Tous les champs sont obligatoires');
     exit;
 }
 
@@ -41,5 +41,5 @@ $stmt->execute([
 $_SESSION['utilisateur']['nom'] = $nom;
 $_SESSION['utilisateur']['prenom'] = $prenom;
 
-header('Location: /vite-gourmand/user/profile.php?success=1');
+header('Location: /user/profile.php?success=1');
 exit;

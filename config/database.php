@@ -1,9 +1,9 @@
 <?php
-$host = '127.0.0.1';
-$dbname = 'vite_gourmand';
-$username = 'root';
-$password = '';
-$port = 3307; // Port MySQL utilisé car 3306 était déjà occupé sur ma machine
+$host = 'mysql-arfaoui.alwaysdata.net';
+$dbname = 'arfaoui_vite_gourmand';
+$username = 'arfaoui';
+$password = 'Aymen69008@';
+$port = 3306; 
 
 try {
     $pdo = new PDO(

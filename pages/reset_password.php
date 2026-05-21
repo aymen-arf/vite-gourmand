@@ -14,7 +14,7 @@ $token = $_GET['token'] ?? '';
                 <div class="alert alert-danger"><?= htmlspecialchars($_GET['error']) ?></div>
             <?php endif; ?>
 
-            <form action="/vite-gourmand/actions/reset_password_action.php" method="post" class="card shadow-sm p-4">
+            <form action="/actions/reset_password_action.php" method="post" class="card shadow-sm p-4">
                 <input type="hidden" name="token" value="<?= htmlspecialchars($token) ?>">
 
                 <div class="mb-3">

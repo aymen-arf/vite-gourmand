@@ -3,7 +3,7 @@ session_start();
 require_once '../config/database.php';
 
 if (!isset($_SESSION['utilisateur']) || $_SESSION['utilisateur']['role'] !== 'administrateur') {
-    header('Location: /vite-gourmand/pages/login.php');
+    header('Location: /pages/login.php');
     exit;
 }
 
@@ -20,7 +20,7 @@ if (
     empty($nom) || empty($prenom) || empty($email) || empty($telephone) ||
     empty($ville) || empty($pays) || empty($adresse_postale) || empty($password)
 ) {
-    header('Location: /vite-gourmand/admin/dashboard.php');
+    header('Location: /admin/dashboard.php');
     exit;
 }
 
@@ -29,7 +29,7 @@ $roleStmt->execute();
 $roleEmploye = $roleStmt->fetch(PDO::FETCH_ASSOC);
 
 if (!$roleEmploye) {
-    header('Location: /vite-gourmand/admin/dashboard.php');
+    header('Location: /admin/dashboard.php');
     exit;
 }
 
@@ -57,5 +57,5 @@ if (!$check->fetch()) {
     ]);
 }
 
-header('Location: /vite-gourmand/admin/dashboard.php?success=1');
+header('Location: /admin/dashboard.php?success=1');
 exit;

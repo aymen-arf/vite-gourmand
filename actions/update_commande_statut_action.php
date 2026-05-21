@@ -3,12 +3,12 @@ session_start();
 require_once '../config/database.php';
 
 if (!isset($_SESSION['utilisateur']) || !in_array($_SESSION['utilisateur']['role'], ['employe', 'administrateur'])) {
-    header('Location: /vite-gourmand/pages/login.php');
+    header('Location: /pages/login.php');
     exit;
 }
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header('Location: /vite-gourmand/employee/dashboard.php');
+    header('Location: /employee/dashboard.php');
     exit;
 }
 
@@ -33,9 +33,9 @@ if ($commandeId > 0 && in_array($statut, $allowed, true)) {
     $suivi = $pdo->prepare("INSERT INTO suivi_commande (commande_id, statut) VALUES (?, ?)");
     $suivi->execute([$commandeId, $statut]);
 
-    header('Location: /vite-gourmand/employee/dashboard.php?success=1');
+    header('Location: /employee/dashboard.php?success=1');
     exit;
 }
 
-header('Location: /vite-gourmand/employee/dashboard.php?error=' . urlencode('Statut invalide'));
+header('Location: /employee/dashboard.php?error=' . urlencode('Statut invalide'));
 exit;

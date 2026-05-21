@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['utilisateur'])) {
-    header('Location: /vite-gourmand/pages/login.php');
+    header('Location: /pages/login.php');
     exit;
 }
 
@@ -21,7 +21,7 @@ $stmt->execute([$commandeId, $_SESSION['utilisateur']['id']]);
 $commande = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if (!$commande) {
-    header('Location: /vite-gourmand/user/dashboard.php');
+    header('Location: /user/dashboard.php');
     exit;
 }
 
@@ -50,7 +50,7 @@ include '../includes/header.php';
         <div class="card shadow-sm p-4 mb-4">
             <h2 class="h4 mb-3">Modifier la commande</h2>
 
-            <form action="/vite-gourmand/actions/update_commande_action.php" method="post">
+            <form action="/actions/update_commande_action.php" method="post">
                 <input type="hidden" name="commande_id" value="<?= $commande['commande_id'] ?>">
 
                 <div class="mb-3">
@@ -89,7 +89,7 @@ include '../includes/header.php';
         <div class="card shadow-sm p-4" id="avis">
             <h2 class="h4 mb-3">Donner un avis</h2>
 
-            <form action="/vite-gourmand/actions/avis_action.php" method="post">
+            <form action="/actions/avis_action.php" method="post">
                 <input type="hidden" name="commande_id" value="<?= $commande['commande_id'] ?>">
 
                 <div class="mb-3">

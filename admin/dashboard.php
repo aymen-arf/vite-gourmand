@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['utilisateur']) || $_SESSION['utilisateur']['role'] !== 'administrateur') {
-    header('Location: /vite-gourmand/pages/login.php');
+    header('Location: /pages/login.php');
     exit;
 }
 
@@ -56,7 +56,7 @@ include '../includes/header.php';
 
     <div class="card shadow-sm p-4 mb-4">
         <h2 class="h4 mb-3">Créer un compte employé</h2>
-        <form action="/vite-gourmand/actions/create_employe_action.php" method="post" class="row g-3">
+        <form action="/actions/create_employe_action.php" method="post" class="row g-3">
             <div class="col-md-4">
                 <input type="text" name="nom" class="form-control" placeholder="Nom" required>
             </div>
@@ -110,9 +110,9 @@ include '../includes/header.php';
                                 <td><?= $employe['actif'] ? 'Oui' : 'Non' ?></td>
                                 <td>
                                     <?php if ($employe['actif']): ?>
-                                        <a href="/vite-gourmand/actions/toggle_employe_action.php?id=<?= $employe['utilisateur_id'] ?>&actif=0" class="btn btn-sm btn-danger">Désactiver</a>
+                                        <a href="/actions/toggle_employe_action.php?id=<?= $employe['utilisateur_id'] ?>&actif=0" class="btn btn-sm btn-danger">Désactiver</a>
                                     <?php else: ?>
-                                        <a href="/vite-gourmand/actions/toggle_employe_action.php?id=<?= $employe['utilisateur_id'] ?>&actif=1" class="btn btn-sm btn-success">Réactiver</a>
+                                        <a href="/actions/toggle_employe_action.php?id=<?= $employe['utilisateur_id'] ?>&actif=1" class="btn btn-sm btn-success">Réactiver</a>
                                     <?php endif; ?>
                                 </td>
                             </tr>
@@ -158,7 +158,7 @@ include '../includes/header.php';
 
     <div class="card shadow-sm p-4">
         <h2 class="h4 mb-3">Accès au dashboard employé</h2>
-        <a href="/vite-gourmand/employee/dashboard.php" class="btn btn-outline-dark">Ouvrir les fonctions employé</a>
+        <a href="/employee/dashboard.php" class="btn btn-outline-dark">Ouvrir les fonctions employé</a>
     </div>
 </section>
 
