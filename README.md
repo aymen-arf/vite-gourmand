@@ -34,6 +34,14 @@ Application web de gestion et de commande de menus pour l'entreprise Vite & Gour
 - Commande de menu
 - Gestion utilisateur, employé et administrateur
 
+## Comptes de test
+
+-compte admin : lea.atmani@icloud.fr code : Aymen69008@
+
+-compte employé : aymenarfaoui87@gmail.com code : Aymen69008@
+
+-compte client : zazadedeni@gmail.com code : Mehdi69008@
+
 ## Auteur
 
 ARFAOUI Aymen
